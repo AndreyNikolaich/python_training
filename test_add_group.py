@@ -1,15 +1,13 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
-import unittest, time, re
+import unittest
+
 
 class UntitledTestCase(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(30)
         self.base_url = "https://www.google.com/"
         self.verificationErrors = []
@@ -61,6 +59,7 @@ class UntitledTestCase(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
         self.assertEqual([], self.verificationErrors)
+
 
 if __name__ == "__main__":
     unittest.main()
