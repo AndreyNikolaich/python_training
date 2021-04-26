@@ -6,13 +6,15 @@ import unittest
 
 
 class UntitledTestCase(unittest.TestCase):
+
     def setUp(self):
         self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(30)
         self.base_url = "https://www.google.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
-    
+
+
     def test_untitled_test_case(self):
         driver = self.driver
         driver.get("http://localhost/addressbook/")
@@ -41,7 +43,8 @@ class UntitledTestCase(unittest.TestCase):
         return True
     
     def is_alert_present(self):
-        try: self.driver.switch_to_alert()
+        try:
+            self.driver.switch_to_alert()
         except NoAlertPresentException as e: return False
         return True
     
